@@ -1,0 +1,6 @@
+framework module Pods_mdb_mp4_socialsUITests {
+  umbrella header "Pods-mdb_mp4_socialsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

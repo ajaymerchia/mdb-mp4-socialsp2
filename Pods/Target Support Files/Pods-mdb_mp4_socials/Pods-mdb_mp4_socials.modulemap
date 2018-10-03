@@ -1,0 +1,6 @@
+framework module Pods_mdb_mp4_socials {
+  umbrella header "Pods-mdb_mp4_socials-umbrella.h"
+
+  export *
+  module * { export * }
+}

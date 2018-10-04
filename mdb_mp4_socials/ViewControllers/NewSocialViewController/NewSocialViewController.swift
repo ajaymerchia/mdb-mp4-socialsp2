@@ -10,7 +10,7 @@ import UIKit
 class NewSocialViewController: UIViewController {
 
     var navbar: UINavigationBar!
-    var fullName: String!
+    var fullName = (UIApplication.shared.delegate as! AppDelegate).currFullname!
     
     var eventNameField: UITextField!
     var eventDescField: UITextView!
@@ -22,7 +22,6 @@ class NewSocialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        getFullName()
         // Do any additional setup after loading the view.
     }
     

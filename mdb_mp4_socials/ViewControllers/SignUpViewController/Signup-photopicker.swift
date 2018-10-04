@@ -1,14 +1,15 @@
 //
-//  NewSocial-imagepicker.swift
-//  
+//  Signup-photopicker.swift
+//  mdb_mp4_socials
 //
-//  Created by Ajay Raj Merchia on 9/27/18.
+//  Created by Ajay Raj Merchia on 10/3/18.
+//  Copyright © 2018 Ajay Raj Merchia. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-extension NewSocialViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @objc func openActionSheet() {
         let actionSheet = UIAlertController(title: "Select Photo From", message: nil, preferredStyle: .actionSheet)
@@ -44,18 +45,17 @@ extension NewSocialViewController: UIImagePickerControllerDelegate, UINavigation
     }
     
     @objc func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
-
+                                     didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]){
+        
         let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as! UIImage
-        eventImgPicker.setImage(chosenImage, for: .normal)
-        imgPickerPrompt.removeFromSuperview()
+        profile_img_button.setImage(chosenImage, for: .normal)
         dismiss(animated:true, completion: nil)
     }
-
-
+    
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     
-
+    
 }

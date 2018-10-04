@@ -10,7 +10,8 @@ import Foundation
 import FirebaseCore
 import FirebaseAuth
 import FirebaseDatabase
-
+import FirebaseStorage
+import JGProgressHUD
 
 
 extension SignUpViewController {
@@ -19,13 +20,25 @@ extension SignUpViewController {
     }
     
     @objc func attempt_account_creation() {
-        sign_up_button.isUserInteractionEnabled = true
-
+        sign_up_button.isUserInteractionEnabled = false
+        hud = JGProgressHUD(style: .light)
+        hud.textLabel.text = "Creating Account..."
+        hud.show(in: self.view)
+        
         let name = fullname_field.text!
         let username = username_field.text!.lowercased()
         let email = emailadd_field.text!.lowercased()
         let password = password_field.text!
         
+        guard let profilePic = profile_img_button.imageView?.image else {
+            signup_error(code: 0)
+            return
+        }
+        
+        guard profilePic != UIImage(named: "avatar") else {
+            signup_error(code: 0)
+            return
+        }
         guard name != "" else {
             signup_error(code: 1)
             return
@@ -48,11 +61,56 @@ extension SignUpViewController {
             return
         }
         
+        let user_record = ["name": name, "email": email, "username": username, "password": password]
+        
+        uploadProfileImageFor(user: user_record, withImage: profilePic)
+    }
+    
+    func uploadProfileImageFor(user: [String: String], withImage: UIImage) {
+        let image_directory = Storage.storage().reference().child("profile_images")
+        let photoRef = image_directory.child(user["username"]!)
+        guard let photoData = withImage.jpegData(compressionQuality: 0.4) else {
+            return
+        }
+        
+        photoRef.putData(photoData, metadata: nil) { (metadata, error) in
+            guard metadata != nil else {
+                // Uh-oh, an error occurred!
+                debugPrint("error1")
+                self.signup_error(code: -1)
+                return
+            }
+            // Metadata contains file metadata such as size, content-type.
+            // let size = metadata.size
+            // You can also access to download URL after upload.
+            photoRef.downloadURL { (url, error) in
+                guard url != nil else {
+                    // Uh-oh, an error occurred!
+                    debugPrint("error2")
+                    self.signup_error(code: -1)
+                    return
+                }
+                self.createAccountFor(userRecord: user, photo: url!)
+            }
+        }
+    }
+    
+    func deletePhoto(_ usr: String) {
+        let image_directory = Storage.storage().reference().child("profile_images").child(usr)
+        image_directory.delete()
+    }
+    
+    func createAccountFor(userRecord: [String: String], photo: URL) {
+        let email = userRecord["email"]!
+        let password = userRecord["password"]!
+        let username = userRecord["username"]!
+        let name = userRecord["name"]!
+        
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             if let error = error {
-                self.sign_up_button.isUserInteractionEnabled = true
                 print(error)
-                self.displayAlert(title: "Oops!", message: "Make sure your email is correct and your password is at least 8 characters long.")
+                self.signup_error(code: 6)
+                self.deletePhoto(username)
                 return
             } else {
                 guard let uid = user?.user.uid else {
@@ -60,26 +118,16 @@ extension SignUpViewController {
                 }
                 let ref = Database.database().reference()
                 let userRef = ref.child("users").child(username)
-                let values = ["fullname": name, "email": email]
-                
-                userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                    if error != nil {
-                        return
-                    } else {
-                        self.currUsername = username
-                        debugPrint("Ready to move on")
-                        let origin = self.presentingViewController as? LoginViewController
-                        origin?.currUsername = self.currUsername
-                        
-                        self.dismiss(animated: true, completion: {})
-                    }
-                })
-                
+                let values = ["fullname": name, "email": email, "url": photo.absoluteString]
                 
                 let dataRef = ref.child("uid_lookup")
                 dataRef.updateChildValues([uid: username])
                 
-                
+                userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
+                    (UIApplication.shared.delegate as! AppDelegate).currUsername = username
+                    (UIApplication.shared.delegate as! AppDelegate).currFullname = name
+                    self.dismiss(animated: true, completion: {})
+                })
             }
         })
     }
@@ -89,6 +137,8 @@ extension SignUpViewController {
     func signup_error(code: Int) {
         var msg = "We had an issue with "
         switch code {
+        case 0:
+            msg = msg + "your profile picture."
         case 1:
             msg = msg + "your full name."
         case 2:
@@ -99,11 +149,15 @@ extension SignUpViewController {
             msg = msg + "your password."
         case 5:
             msg = "Sorry! That username is already taken."
+        case 6:
+            msg = "Make sure your email is correct and your password is at least 8 characters long."
         default:
             msg = msg + " something. Try again later."
         }
         
         displayAlert(title: "Oops", message: msg)
+        sign_up_button.isUserInteractionEnabled = true
+        hud?.dismiss()
         
     }
     

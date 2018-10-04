@@ -35,7 +35,7 @@ extension FeedViewController {
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.done, target: self, action: #selector(logout))
         
         
-            
+            self.navigationItem.title = "Feed"
         self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Roman", size: 21)!], for: UIControl.State.normal)
         
 
@@ -51,6 +51,9 @@ extension FeedViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
+        
+        (UIApplication.shared.delegate as! AppDelegate).currFullname = nil
+        (UIApplication.shared.delegate as! AppDelegate).currUsername = nil
         
         self.presentingViewController?.dismiss(animated: true)
     

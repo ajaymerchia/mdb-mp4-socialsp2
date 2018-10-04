@@ -88,6 +88,7 @@ extension LoginViewController {
         username_field.layer.cornerRadius = 5
         username_field.textAlignment = .center
         username_field.tintColor = UIColor.white
+        username_field.autocapitalizationType = .none
         
         
         view.addSubview(username_field)

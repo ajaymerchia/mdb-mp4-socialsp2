@@ -27,7 +27,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         // Initialize Cell
         cell.awakeFromNib()
         cell.initialCellFrom(event: eventsList[indexPath.row])
-        guard let curr_user = (self.navigationController as! AccountNavController).logged_in_fullname else {
+        guard let curr_user = (UIApplication.shared.delegate as! AppDelegate).currFullname else {
             return cell
         }
         cell.currName = curr_user

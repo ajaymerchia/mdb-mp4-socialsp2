@@ -26,7 +26,6 @@
 		B73F9C4A21658C5D00D001D9 /* Feed-initUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2D21658C5D00D001D9 /* Feed-initUI.swift */; };
 		B73F9C4B21658C5D00D001D9 /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2E21658C5D00D001D9 /* SocialCell.swift */; };
 		B73F9C4C21658C5D00D001D9 /* Feed-tableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2F21658C5D00D001D9 /* Feed-tableview.swift */; };
-		B73F9C4D21658C5D00D001D9 /* AccountNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C3121658C5D00D001D9 /* AccountNavController.swift */; };
 		B73F9C4E21658C5D00D001D9 /* Login-logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C3321658C5D00D001D9 /* Login-logic.swift */; };
 		B73F9C4F21658C5D00D001D9 /* Login-initUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C3421658C5D00D001D9 /* Login-initUI.swift */; };
 		B73F9C5021658C5D00D001D9 /* Login-animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C3521658C5D00D001D9 /* Login-animation.swift */; };
@@ -35,6 +34,7 @@
 		B73F9C5321658C5D00D001D9 /* Playball-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B73F9C3A21658C5D00D001D9 /* Playball-Regular.ttf */; };
 		B73F9C5421658C5D00D001D9 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C3B21658C5D00D001D9 /* utils.swift */; };
 		B73F9C5621658D4700D001D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B73F9C5521658D4700D001D9 /* GoogleService-Info.plist */; };
+		B73F9C58216590AD00D001D9 /* Signup-photopicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C57216590AD00D001D9 /* Signup-photopicker.swift */; };
 		B7FC01B62165870400F83C60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC01B52165870400F83C60 /* AppDelegate.swift */; };
 		B7FC01B82165870400F83C60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC01B72165870400F83C60 /* ViewController.swift */; };
 		B7FC01BB2165870400F83C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FC01B92165870400F83C60 /* Main.storyboard */; };
@@ -87,7 +87,6 @@
 		B73F9C2D21658C5D00D001D9 /* Feed-initUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Feed-initUI.swift"; sourceTree = "<group>"; };
 		B73F9C2E21658C5D00D001D9 /* SocialCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
 		B73F9C2F21658C5D00D001D9 /* Feed-tableview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Feed-tableview.swift"; sourceTree = "<group>"; };
-		B73F9C3121658C5D00D001D9 /* AccountNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountNavController.swift; sourceTree = "<group>"; };
 		B73F9C3321658C5D00D001D9 /* Login-logic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Login-logic.swift"; sourceTree = "<group>"; };
 		B73F9C3421658C5D00D001D9 /* Login-initUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Login-initUI.swift"; sourceTree = "<group>"; };
 		B73F9C3521658C5D00D001D9 /* Login-animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Login-animation.swift"; sourceTree = "<group>"; };
@@ -96,6 +95,7 @@
 		B73F9C3A21658C5D00D001D9 /* Playball-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Playball-Regular.ttf"; sourceTree = "<group>"; };
 		B73F9C3B21658C5D00D001D9 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		B73F9C5521658D4700D001D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B73F9C57216590AD00D001D9 /* Signup-photopicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signup-photopicker.swift"; sourceTree = "<group>"; };
 		B7FC01B22165870400F83C60 /* mdb_mp4_socials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mdb_mp4_socials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7FC01B52165870400F83C60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7FC01B72165870400F83C60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +179,6 @@
 				B73F9C2021658C5D00D001D9 /* NewSocialViewController */,
 				B73F9C2621658C5D00D001D9 /* DetailViewController */,
 				B73F9C2A21658C5D00D001D9 /* FeedViewController */,
-				B73F9C3021658C5D00D001D9 /* AccountNavController */,
 				B73F9C3221658C5D00D001D9 /* LoginViewController */,
 			);
 			path = ViewControllers;
@@ -190,6 +189,7 @@
 			children = (
 				B73F9C1D21658C5D00D001D9 /* Signup-initUI.swift */,
 				B73F9C1E21658C5D00D001D9 /* Signup-logic.swift */,
+				B73F9C57216590AD00D001D9 /* Signup-photopicker.swift */,
 				B73F9C1F21658C5D00D001D9 /* Signup-main.swift */,
 			);
 			path = SignUpViewController;
@@ -227,14 +227,6 @@
 				B73F9C2F21658C5D00D001D9 /* Feed-tableview.swift */,
 			);
 			path = FeedViewController;
-			sourceTree = "<group>";
-		};
-		B73F9C3021658C5D00D001D9 /* AccountNavController */ = {
-			isa = PBXGroup;
-			children = (
-				B73F9C3121658C5D00D001D9 /* AccountNavController.swift */,
-			);
-			path = AccountNavController;
 			sourceTree = "<group>";
 		};
 		B73F9C3221658C5D00D001D9 /* LoginViewController */ = {
@@ -573,8 +565,8 @@
 				B73F9C5221658C5D00D001D9 /* rgba.swift in Sources */,
 				B73F9C3C21658C5D00D001D9 /* Event.swift in Sources */,
 				B73F9C4A21658C5D00D001D9 /* Feed-initUI.swift in Sources */,
-				B73F9C4D21658C5D00D001D9 /* AccountNavController.swift in Sources */,
 				B73F9C4B21658C5D00D001D9 /* SocialCell.swift in Sources */,
+				B73F9C58216590AD00D001D9 /* Signup-photopicker.swift in Sources */,
 				B73F9C4521658C5D00D001D9 /* DetailViewController.swift in Sources */,
 				B73F9C3F21658C5D00D001D9 /* Signup-main.swift in Sources */,
 				B73F9C4921658C5D00D001D9 /* Feed-download.swift in Sources */,

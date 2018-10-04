@@ -18,6 +18,10 @@ extension LoginViewController {
     }
     
     @objc func get_email_login() {
+        hud = JGProgressHUD(style: .light)
+        hud.textLabel.text = "Loading"
+        hud.show(in: self.view)
+        
         advance_to_login.isUserInteractionEnabled = false
         guard let username = username_field.text?.lowercased() else {
             self.displayAlert(title: "Oops", message: "Check your username!")
@@ -52,9 +56,7 @@ extension LoginViewController {
         advance_to_login.isUserInteractionEnabled = false
         debugPrint("pressed")
         
-        hud = JGProgressHUD(style: .light)
-        hud.textLabel.text = "Loading"
-        hud.show(in: self.view)
+        
         
         
         guard let password = password_field.text else {
@@ -135,15 +137,9 @@ extension LoginViewController {
     }
     
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let navVC = segue.destination as? AccountNavController {
-            navVC.logged_in_user = currUsername
-            navVC.logged_in_fullname = currFullName
-            currUsername = nil
-            currFullName = nil
-            
-        }
+        (UIApplication.shared.delegate as! AppDelegate).currUsername = currUsername
+        (UIApplication.shared.delegate as! AppDelegate).currFullname = currFullName
     }
     
     override func viewDidDisappear(_ animated: Bool) {

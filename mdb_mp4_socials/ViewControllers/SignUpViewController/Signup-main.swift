@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JGProgressHUD
 
 class SignUpViewController: UIViewController {
 
@@ -19,10 +20,14 @@ class SignUpViewController: UIViewController {
     var password_field: UITextField!
     
     var sign_up_button: UIButton!
+    var profile_img_button: UIButton!
+    var edit_img_prompt: UILabel!
     
     
     var currUsername: String!
     var restrictedUsernames: [String] = []
+    
+    var hud: JGProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()

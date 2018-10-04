@@ -81,7 +81,7 @@ class Event:Equatable, Comparable {
     }
     
     func assignImageEventWith(id: String) {
-        let image_directory = Storage.storage().reference().child("images")
+        let image_directory = Storage.storage().reference().child("event_images")
         let imageFile = image_directory.child(id)
         
         // Download in memory with a maximum allowed size of 5MB (1 * 1024 * 1024 bytes)

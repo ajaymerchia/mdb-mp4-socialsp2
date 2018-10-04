@@ -18,8 +18,6 @@ extension NewSocialViewController {
         init_textinput()
         init_datepicker()
         init_button()
-        
-        getFullName()
     }
     
     func init_text() {
@@ -89,7 +87,6 @@ extension NewSocialViewController {
         eventImgPicker = UIButton(frame: CGRect(x: 0, y: navbar.frame.maxY, width: view.frame.width, height: 2.0/3 * view.frame.width))
         eventImgPicker.setImage(UIImage(named: "placeholder"), for: .normal)
         eventImgPicker.imageView?.contentMode = .scaleAspectFill
-//        eventImgPicker.addTarget(self, action: #selector(createImagePicker), for: .touchUpInside)
         eventImgPicker.addTarget(self, action: #selector(openActionSheet), for: .touchUpInside)
         view.addSubview(eventImgPicker)
         
@@ -103,11 +100,5 @@ extension NewSocialViewController {
         createEvent.addTarget(self, action: #selector(createTheEvent), for: .touchUpInside)
         view.addSubview(createEvent)
     }
-    
-    func getFullName() {
-        self.fullName = (self.presentingViewController as? AccountNavController)?.logged_in_fullname
-        
-        
-    }
-    
+
 }

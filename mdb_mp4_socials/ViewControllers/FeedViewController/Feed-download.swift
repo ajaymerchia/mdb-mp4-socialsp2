@@ -14,7 +14,7 @@ import FirebaseStorage
 extension FeedViewController {
     func download_events() {
         let eventRef = Database.database().reference().child("events")
-        let image_directory = Storage.storage().reference().child("images")
+        let image_directory = Storage.storage().reference().child("event_images")
         
         eventRef.observeSingleEvent(of: .value, with: { (snapshot) in
             let allEvents = snapshot.value as? [String : AnyObject] ?? [:]
@@ -102,7 +102,7 @@ extension FeedViewController {
     
     func newEventListener() {
         let eventRef = Database.database().reference().child("events")
-        let image_directory = Storage.storage().reference().child("images")
+        let image_directory = Storage.storage().reference().child("event_images")
 
         eventRef.observe(DataEventType.childAdded, with: { (snapshot) in
             let newEvent = snapshot.value as? [String : AnyObject] ?? [:]

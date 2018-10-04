@@ -20,7 +20,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         initUI()
-        debugPrint("view for " + (self.navigationController as! AccountNavController).logged_in_user)
+        debugPrint("view for " + (UIApplication.shared.delegate as! AppDelegate).currUsername!)
         download_events()
         initEventUpdater()
         newEventListener()

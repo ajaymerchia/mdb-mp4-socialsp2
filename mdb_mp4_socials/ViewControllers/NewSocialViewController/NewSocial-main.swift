@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import CoreLocation
 
 class NewSocialViewController: UIViewController {
 
     var navbar: UINavigationBar!
     var fullName = (UIApplication.shared.delegate as! AppDelegate).currFullname!
+    var selectedLocation: CLLocationCoordinate2D!
     
     var eventNameField: UITextField!
+    var eventLocationField: UITextField!
+    var eventLocationButt: UIButton!
+    
     var eventDescField: UITextView!
     var eventDateField: UIDatePicker!
     var eventImgPicker: UIButton!

@@ -17,6 +17,7 @@ target 'mdb_mp4_socials' do
     # Pods for testing
   end
   
+  pod 'LocationPicker'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'

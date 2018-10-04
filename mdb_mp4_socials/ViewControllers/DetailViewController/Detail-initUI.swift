@@ -16,11 +16,17 @@ extension DetailViewController {
         init_img()
         init_text()
         init_buttons()
+        init_nav()
         
         if event.interestedMembers.contains(currUser) {
             interestButton.isSelected = true
         }
         
+    }
+    
+    func init_nav() {
+        self.navigationController?.navigationBar.titleTextAttributes =
+            [NSAttributedString.Key.font: Constants.navbarTitleFont!]
     }
     
     

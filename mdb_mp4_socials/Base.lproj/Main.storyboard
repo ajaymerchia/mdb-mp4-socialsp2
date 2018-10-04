@@ -70,8 +70,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="2si-hB-znr"/>
                     <connections>
-                        <segue destination="dAm-v2-4p7" kind="presentation" identifier="feed2new" id="Cdg-th-mdd"/>
+                        <segue destination="dAm-v2-4p7" kind="presentation" identifier="feed2new1" id="Cdg-th-mdd"/>
                         <segue destination="pmr-Pf-DGY" kind="show" identifier="feed2detail" id="WjF-Fj-KR1"/>
+                        <segue destination="frY-oN-MIj" kind="presentation" identifier="feed2new" id="zo0-bv-jG4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FVQ-WB-ctq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -93,6 +94,22 @@
             </objects>
             <point key="canvasLocation" x="3596" y="81"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3jv-VA-17y">
+            <objects>
+                <navigationController id="frY-oN-MIj" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="WEb-E2-j5e">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="dAm-v2-4p7" kind="relationship" relationship="rootViewController" id="Nj8-Yq-kek"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5f-Ga-fit" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2900" y="-1361"/>
+        </scene>
         <!--New Social View Controller-->
         <scene sceneID="5ZP-jM-BZr">
             <objects>
@@ -103,10 +120,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="8mH-Ub-cx6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="8vL-eP-Rxh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBa-8m-IA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3596" y="-650"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Nj8-Yq-kek"/>
+    </inferredMetricsTieBreakers>
 </document>

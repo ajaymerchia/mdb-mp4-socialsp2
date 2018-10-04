@@ -16,7 +16,7 @@
 		B73F9C4021658C5D00D001D9 /* NewSocial-EventCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2121658C5D00D001D9 /* NewSocial-EventCreate.swift */; };
 		B73F9C4121658C5D00D001D9 /* NewSocial-initUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2221658C5D00D001D9 /* NewSocial-initUI.swift */; };
 		B73F9C4221658C5D00D001D9 /* NewSocial-textview.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2321658C5D00D001D9 /* NewSocial-textview.swift */; };
-		B73F9C4321658C5D00D001D9 /* NewSocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2421658C5D00D001D9 /* NewSocialViewController.swift */; };
+		B73F9C4321658C5D00D001D9 /* NewSocial-main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2421658C5D00D001D9 /* NewSocial-main.swift */; };
 		B73F9C4421658C5D00D001D9 /* NewSocial-imagepicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2521658C5D00D001D9 /* NewSocial-imagepicker.swift */; };
 		B73F9C4521658C5D00D001D9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2721658C5D00D001D9 /* DetailViewController.swift */; };
 		B73F9C4621658C5D00D001D9 /* Detail-interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C2821658C5D00D001D9 /* Detail-interest.swift */; };
@@ -35,6 +35,8 @@
 		B73F9C5421658C5D00D001D9 /* utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C3B21658C5D00D001D9 /* utils.swift */; };
 		B73F9C5621658D4700D001D9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B73F9C5521658D4700D001D9 /* GoogleService-Info.plist */; };
 		B73F9C58216590AD00D001D9 /* Signup-photopicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C57216590AD00D001D9 /* Signup-photopicker.swift */; };
+		B73F9C5A2165D16A00D001D9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C592165D16A00D001D9 /* Constants.swift */; };
+		B73F9C5C2165D50600D001D9 /* NewSocial-location.swift in Sources */ = {isa = PBXBuildFile; fileRef = B73F9C5B2165D50600D001D9 /* NewSocial-location.swift */; };
 		B7FC01B62165870400F83C60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC01B52165870400F83C60 /* AppDelegate.swift */; };
 		B7FC01B82165870400F83C60 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FC01B72165870400F83C60 /* ViewController.swift */; };
 		B7FC01BB2165870400F83C60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FC01B92165870400F83C60 /* Main.storyboard */; };
@@ -77,7 +79,7 @@
 		B73F9C2121658C5D00D001D9 /* NewSocial-EventCreate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewSocial-EventCreate.swift"; sourceTree = "<group>"; };
 		B73F9C2221658C5D00D001D9 /* NewSocial-initUI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewSocial-initUI.swift"; sourceTree = "<group>"; };
 		B73F9C2321658C5D00D001D9 /* NewSocial-textview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewSocial-textview.swift"; sourceTree = "<group>"; };
-		B73F9C2421658C5D00D001D9 /* NewSocialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSocialViewController.swift; sourceTree = "<group>"; };
+		B73F9C2421658C5D00D001D9 /* NewSocial-main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewSocial-main.swift"; sourceTree = "<group>"; };
 		B73F9C2521658C5D00D001D9 /* NewSocial-imagepicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NewSocial-imagepicker.swift"; sourceTree = "<group>"; };
 		B73F9C2721658C5D00D001D9 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B73F9C2821658C5D00D001D9 /* Detail-interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Detail-interest.swift"; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		B73F9C3B21658C5D00D001D9 /* utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = utils.swift; sourceTree = "<group>"; };
 		B73F9C5521658D4700D001D9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B73F9C57216590AD00D001D9 /* Signup-photopicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signup-photopicker.swift"; sourceTree = "<group>"; };
+		B73F9C592165D16A00D001D9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B73F9C5B2165D50600D001D9 /* NewSocial-location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewSocial-location.swift"; sourceTree = "<group>"; };
 		B7FC01B22165870400F83C60 /* mdb_mp4_socials.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mdb_mp4_socials.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7FC01B52165870400F83C60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7FC01B72165870400F83C60 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +205,8 @@
 				B73F9C2121658C5D00D001D9 /* NewSocial-EventCreate.swift */,
 				B73F9C2221658C5D00D001D9 /* NewSocial-initUI.swift */,
 				B73F9C2321658C5D00D001D9 /* NewSocial-textview.swift */,
-				B73F9C2421658C5D00D001D9 /* NewSocialViewController.swift */,
+				B73F9C2421658C5D00D001D9 /* NewSocial-main.swift */,
+				B73F9C5B2165D50600D001D9 /* NewSocial-location.swift */,
 				B73F9C2521658C5D00D001D9 /* NewSocial-imagepicker.swift */,
 			);
 			path = NewSocialViewController;
@@ -246,6 +251,7 @@
 				B73F9C3821658C5D00D001D9 /* rgba.swift */,
 				B73F9C3921658C5D00D001D9 /* FontGenerator */,
 				B73F9C3B21658C5D00D001D9 /* utils.swift */,
+				B73F9C592165D16A00D001D9 /* Constants.swift */,
 			);
 			path = rsrc;
 			sourceTree = "<group>";
@@ -506,6 +512,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
 				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/LocationPicker/LocationPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -518,6 +525,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LocationPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -565,6 +573,7 @@
 				B73F9C5221658C5D00D001D9 /* rgba.swift in Sources */,
 				B73F9C3C21658C5D00D001D9 /* Event.swift in Sources */,
 				B73F9C4A21658C5D00D001D9 /* Feed-initUI.swift in Sources */,
+				B73F9C5C2165D50600D001D9 /* NewSocial-location.swift in Sources */,
 				B73F9C4B21658C5D00D001D9 /* SocialCell.swift in Sources */,
 				B73F9C58216590AD00D001D9 /* Signup-photopicker.swift in Sources */,
 				B73F9C4521658C5D00D001D9 /* DetailViewController.swift in Sources */,
@@ -575,12 +584,13 @@
 				B73F9C4621658C5D00D001D9 /* Detail-interest.swift in Sources */,
 				B73F9C3D21658C5D00D001D9 /* Signup-initUI.swift in Sources */,
 				B73F9C5421658C5D00D001D9 /* utils.swift in Sources */,
-				B73F9C4321658C5D00D001D9 /* NewSocialViewController.swift in Sources */,
+				B73F9C4321658C5D00D001D9 /* NewSocial-main.swift in Sources */,
 				B73F9C4E21658C5D00D001D9 /* Login-logic.swift in Sources */,
 				B73F9C4121658C5D00D001D9 /* NewSocial-initUI.swift in Sources */,
 				B73F9C3E21658C5D00D001D9 /* Signup-logic.swift in Sources */,
 				B73F9C4421658C5D00D001D9 /* NewSocial-imagepicker.swift in Sources */,
 				B73F9C4021658C5D00D001D9 /* NewSocial-EventCreate.swift in Sources */,
+				B73F9C5A2165D16A00D001D9 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -69,6 +69,7 @@ PODS:
   - IQKeyboardManager (6.1.1)
   - JGProgressHUD (2.0.3)
   - leveldb-library (1.20)
+  - LocationPicker (1.2.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - IQKeyboardManager
   - JGProgressHUD
+  - LocationPicker
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -100,6 +102,7 @@ SPEC REPOS:
     - IQKeyboardManager
     - JGProgressHUD
     - leveldb-library
+    - LocationPicker
     - nanopb
 
 EXTERNAL SOURCES:
@@ -128,8 +131,9 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
   JGProgressHUD: 12b20a8f4ffe05258f8635c1ab92816e451f904d
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  LocationPicker: d91f9fe50493d8058391fe1408aa2a8db49a584d
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
 
-PODFILE CHECKSUM: 29af41c42f678435bc5582a70997319c0a0d38e3
+PODFILE CHECKSUM: 2a4f8be7fbc3dc5e7d68ae5d1b82bd518032d943
 
 COCOAPODS: 1.5.3

@@ -24,7 +24,6 @@ class SocialCell: UITableViewCell {
     
     var currName: String!
     
-    var additionalSeparator: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,7 +54,7 @@ class SocialCell: UITableViewCell {
     
         let additionalSeparatorThickness:CGFloat = 20
         
-        additionalSeparator = UIView(frame: CGRect(x: 0, y: contentView.frame.height - additionalSeparatorThickness, width: contentView.frame.width, height: additionalSeparatorThickness))
+        let additionalSeparator = UIView(frame: CGRect(x: 0, y: contentView.frame.height - additionalSeparatorThickness, width: contentView.frame.width, height: additionalSeparatorThickness))
         
         additionalSeparator.backgroundColor = UIColor.flatWhite
         
@@ -76,7 +75,8 @@ class SocialCell: UITableViewCell {
         
         
         
-        
+        contentView.addSubview(additionalSeparator)
+        contentView.addSubview(underline)
         
         contentView.addSubview(socialImage)
         contentView.addSubview(socialName)
@@ -84,9 +84,6 @@ class SocialCell: UITableViewCell {
         contentView.addSubview(socialHost)
         contentView.addSubview(interested)
         contentView.addSubview(numInterested)
-        
-        contentView.addSubview(additionalSeparator)
-        contentView.addSubview(underline)
         
     }
     

@@ -36,11 +36,10 @@ extension FeedViewController {
         
         
             self.navigationItem.title = "Feed"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: Constants.navbarTitleFont!]
-
-        self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Roman", size: 16)!], for: UIControl.State.normal)
+        self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Roman", size: 21)!], for: UIControl.State.normal)
         
 
+//        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "logout")
         
     }
     

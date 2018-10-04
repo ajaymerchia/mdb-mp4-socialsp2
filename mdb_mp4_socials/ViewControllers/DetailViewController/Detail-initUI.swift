@@ -18,7 +18,7 @@ extension DetailViewController {
         init_buttons()
         init_nav()
         
-        if event.interestedMembers.contains(currUser) {
+        if event.interestedMembers.values.contains(currUser) {
             interestButton.isSelected = true
         }
         
@@ -27,12 +27,13 @@ extension DetailViewController {
     func init_nav() {
         self.navigationController?.navigationBar.titleTextAttributes =
             [NSAttributedString.Key.font: Constants.navbarTitleFont!]
+        self.title = event.title
     }
     
     
     func init_img() {
         // Initialization code
-        event_img = UIImageView(frame: CGRect(x:0, y: 0, width: width, height: 250))
+        event_img = UIImageView(frame: CGRect(x:0, y: UIApplication.shared.statusBarFrame.maxY, width: width, height: 250))
         event_img.contentMode = .scaleAspectFill
         event_img.clipsToBounds = true
         event_img.image = event.image
@@ -120,7 +121,7 @@ extension DetailViewController {
         
         
         interested_list = UILabel(frame:CGRect(x: Utils.PADDING, y: num_interested_label.frame.maxY + Utils.PADDING, width: view.frame.width, height: 20))
-        interested_list.text = "Guest List: " + (event.interestedMembers).joined(separator: ", ")
+        interested_list.text = "Guest List: " + (event.interestedMembers.values).joined(separator: ", ")
         interested_list.font = UIFont(name: "Avenir-Roman", size: 14)
 
         

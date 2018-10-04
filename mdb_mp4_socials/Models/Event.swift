@@ -35,7 +35,7 @@ class Event:Equatable, Comparable {
     
     var poster: String!
     var numInterested: Int!
-    var interestedMembers: [String]!
+    var interestedMembers: [String: String]!
     
     var imageRoute: String!
     var image: UIImage!
@@ -69,10 +69,10 @@ class Event:Equatable, Comparable {
         } else {
             self.numInterested = 0
         }
-        if let interestedMembers = dict["interestedMembers"] as? [String] {
+        if let interestedMembers = dict["interestedMembers"] as? [String: String] {
             self.interestedMembers = interestedMembers
         } else {
-            self.interestedMembers = []
+            self.interestedMembers = [:]
         }
         
         self.image = UIImage(named: "default_event")

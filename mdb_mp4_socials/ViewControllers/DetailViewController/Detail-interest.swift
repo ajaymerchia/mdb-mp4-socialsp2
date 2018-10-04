@@ -36,16 +36,18 @@ extension DetailViewController {
                 return
             }
             var count = value["numInterested"] as! Int
-            var interested_folks = value["interestedMembers"] as? [String] ?? []
+            var interested_folks = value["interestedMembers"] as? [String: String] ?? [:]
             
             
-            let alreadyThere = interested_folks.contains(self.currUser)
+            let username = Utils.getUserName(app: UIApplication.shared)
+            
+            let alreadyThere = interested_folks.keys.contains(username)
             
             if !alreadyThere && amt > 0 {
-                interested_folks.append(self.currUser)
+                interested_folks[username] = self.currUser
                 count += amt
             } else if alreadyThere && amt < 0{
-                interested_folks.remove(at: interested_folks.index(of: self.currUser)!)
+                interested_folks.removeValue(forKey: username)
                 count += amt
             }
 
@@ -54,7 +56,7 @@ extension DetailViewController {
                     return
                 } else {
                     self.num_interested_label.text = "\(count) Interested"
-                    self.interested_list.text = "Guest List: " + (interested_folks).joined(separator: ", ")
+                    self.interested_list.text = "Guest List: " + (interested_folks.values).joined(separator: ", ")
 
                 }
             })

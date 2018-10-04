@@ -21,6 +21,9 @@ class Utils {
         given_view.insertSubview(backgroundImage, at: 0)
     }
     
+    static func getUserName(app: UIApplication) -> String {
+        return (app.delegate as! AppDelegate).currUsername!
+    }
     
     /// Prints all Fonts that have been loaded into the application
     static func printFontFamilies() {

@@ -117,25 +117,35 @@ class SocialCell: UITableViewCell {
     }
     
     func updateInterestForEvent(id: String, amt: Int) {
+        let username = (UIApplication.shared.delegate as! AppDelegate).currUsername!
+        let userInterestedRef = Database.database().reference().child("users").child(username).child("interested_events")
+        let user_interested:Bool = amt > 0
+        userInterestedRef.updateChildValues([id: user_interested])
+        
         let interestRef = Database.database().reference().child("events").child(id)
+
+        
         interestRef.observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             guard let value = snapshot.value as? NSDictionary else {
                 return
             }
             var count = value["numInterested"] as! Int
-            var interested_folks = value["interestedMembers"] as? [String] ?? []
+            var interested_folks = value["interestedMembers"] as? [String: String] ?? [:]
             
+            let username = Utils.getUserName(app: UIApplication.shared)
             
-            let alreadyThere = interested_folks.contains(self.currName)
+            let alreadyThere = interested_folks.keys.contains(username)
             
             if !alreadyThere && amt > 0 {
-                interested_folks.append(self.currName)
+                interested_folks[username] = self.currName
                 count += amt
             } else if alreadyThere && amt < 0{
-                interested_folks.remove(at: interested_folks.index(of: self.currName)!)
+                interested_folks.removeValue(forKey: username)
                 count += amt
             }
+            
+            
             
             interestRef.updateChildValues(["numInterested": count, "interestedMembers": interested_folks], withCompletionBlock: { (error, ref) in
                 if error != nil {

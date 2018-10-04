@@ -98,6 +98,19 @@ extension NewSocialViewController {
             if error != nil {
                 return
             } else {
+                self.addEventIdToUser(object["id"] as! String)
+            }
+        })
+    }
+    
+    func addEventIdToUser(_ e_id: String) {
+        let username = (UIApplication.shared.delegate as! AppDelegate).currUsername
+        
+        let owned_events = Database.database().reference().child("users").child(username!).child("created_events")
+        owned_events.updateChildValues([e_id : true], withCompletionBlock: { (error, ref) in
+            if error != nil {
+                return
+            } else {
                 self.dismiss(animated: true, completion: {})
             }
         })

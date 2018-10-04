@@ -32,7 +32,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
         cell.currName = curr_user
         
-        if eventsList[indexPath.row].interestedMembers.contains(curr_user) {
+        if eventsList[indexPath.row].interestedMembers.values.contains(curr_user) {
             cell.interested.isSelected = true
         }
         

@@ -79,18 +79,13 @@ extension NewSocialViewController {
         eventNameField.font = UIFont(name: "Avenir-Medium", size: 30)
         view.addSubview(eventNameField)
         
-//        eventLocationField = UITextField(frame: CGRect(x: Utils.PADDING, y: eventNameField.frame.maxY, width: view.frame.width - 2*Utils.PADDING, height: 25))
-//        eventLocationField.placeholder = "Choose a Location"
-//        eventLocationField.font = UIFont(name: "Avenir-Light", size: 20)
-//        eventLocationField.delegate = self
-//        view.addSubview(eventLocationField)
         
         eventLocationButt = UIButton(frame: CGRect(x: Utils.PADDING, y: eventNameField.frame.maxY-10, width: view.frame.width - 2*Utils.PADDING, height: 45))
         eventLocationButt.backgroundColor = .white
         eventLocationButt.setBackgroundColor(color: rgba(240,240,240,1), forState: .highlighted)
         eventLocationButt.setTitle("Choose a Location", for: .normal)
         eventLocationButt.setTitleColor(.lightGray, for: .normal)
-        eventLocationButt.titleLabel?.font = UIFont(name: "Avenir-Medium", size: 20)
+        eventLocationButt.titleLabel?.font = UIFont(name: "Avenir-Light", size: 16)
 
         eventLocationButt.contentHorizontalAlignment = .left
 
@@ -118,7 +113,8 @@ extension NewSocialViewController {
     func init_photopicker() {
         eventImgPicker = UIButton(frame: CGRect(x: 0, y: navbar.frame.maxY, width: view.frame.width, height: 2.0/3 * view.frame.width - 50))
         eventImgPicker.setImage(UIImage(named: "placeholder"), for: .normal)
-        eventImgPicker.imageView?.contentMode = .scaleAspectFill
+    
+        eventImgPicker.imageView?.contentMode = .scaleToFill
         eventImgPicker.addTarget(self, action: #selector(openActionSheet), for: .touchUpInside)
         view.insertSubview(eventImgPicker, at: 0)
         

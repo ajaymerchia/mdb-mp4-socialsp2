@@ -15,6 +15,7 @@ class FeedViewController: UIViewController {
     var eventsList: [Event] = []
     var selectedEvent: Event!
     let save_the_quota = false
+    var feed_initialized = false
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,9 +10,15 @@ import Foundation
 import UIKit
 import FirebaseStorage
 import FirebaseDatabase
+import JGProgressHUD
 
 extension NewSocialViewController {
     @objc func createTheEvent() {
+        createEvent.isUserInteractionEnabled = false
+        let hud = JGProgressHUD(style: .light)
+        hud.textLabel.text = "Creating Event..."
+        hud.show(in: self.view)
+        
         var event_entry: [String: Any] = [:]
         
         event_entry["title"] = eventNameField.text!
@@ -23,6 +29,8 @@ extension NewSocialViewController {
         
         event_entry["numInterested"] = 0
         event_entry["interestedMembers"] = []
+        
+        event_entry["location"] = selectedLocation
         
         let event_id = String(format:"%02X", eventNameField.text!.hashValue) + String(format: "%02X", Date.init().description.hashValue)
         

@@ -12,7 +12,7 @@ class NewSocialViewController: UIViewController {
 
     var navbar: UINavigationBar!
     var fullName = (UIApplication.shared.delegate as! AppDelegate).currFullname!
-    var selectedLocation: CLLocationCoordinate2D!
+    var selectedLocation: [String : CLLocationDegrees] = [:]
     
     var eventNameField: UITextField!
     var eventLocationField: UITextField!

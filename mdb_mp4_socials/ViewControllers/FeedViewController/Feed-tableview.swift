@@ -36,6 +36,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             cell.interested.isSelected = true
         }
         
+        cell.additionalSeparator.removeFromSuperview()
+        cell.contentView.addSubview(cell.additionalSeparator)
+        
         return cell
     }
     

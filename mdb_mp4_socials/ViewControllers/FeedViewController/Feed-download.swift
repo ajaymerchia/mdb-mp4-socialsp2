@@ -58,6 +58,7 @@ extension FeedViewController {
                 debugPrint()
                 self.eventsList = recentPull.sorted()
                 self.socialsList.reloadData()
+                self.feed_initialized = true
             })
         })
     }
@@ -105,6 +106,10 @@ extension FeedViewController {
         let image_directory = Storage.storage().reference().child("event_images")
 
         eventRef.observe(DataEventType.childAdded, with: { (snapshot) in
+            if !self.feed_initialized {
+                return
+            }
+            
             let newEvent = snapshot.value as? [String : AnyObject] ?? [:]
             
             debugPrint("Got some new events YEET")

@@ -20,10 +20,12 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         
         initUI()
-        debugPrint("view for " + (UIApplication.shared.delegate as! AppDelegate).currUsername!)
-        download_events()
-        initEventUpdater()
+        debugPrint("view for \(String(describing: LocalData.getLocalData(forKey: .username)))")
+//        download_events()
         newEventListener()
+        initEventUpdater()
+        socialsList.reloadData()
+
         // Do any additional setup after loading the view.
     }
     

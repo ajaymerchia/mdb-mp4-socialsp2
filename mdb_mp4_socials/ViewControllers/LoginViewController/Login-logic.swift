@@ -100,7 +100,6 @@ extension LoginViewController {
                 
                 debugPrint("Got Username: " + username)
                 self.currUsername = username
-                self.advance_to_login.isUserInteractionEnabled = true
                 self.getFullNameFrom(username: username)
                             
             }) { (error) in
@@ -138,8 +137,8 @@ extension LoginViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        (UIApplication.shared.delegate as! AppDelegate).currUsername = currUsername
-        (UIApplication.shared.delegate as! AppDelegate).currFullname = currFullName
+        LocalData.putLocalData(forKey: .username, data: currUsername)
+        LocalData.putLocalData(forKey: .fullname, data: currFullName)
     }
     
     override func viewDidDisappear(_ animated: Bool) {

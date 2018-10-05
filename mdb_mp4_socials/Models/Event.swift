@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 import FirebaseStorage
 
 class Event:Equatable, Comparable {
@@ -32,6 +33,7 @@ class Event:Equatable, Comparable {
     var title: String!
     var description: String!
     var date: Date!
+    var location: CLLocation?
     
     var poster: String!
     var numInterested: Int!
@@ -74,15 +76,24 @@ class Event:Equatable, Comparable {
         } else {
             self.interestedMembers = [:]
         }
+        let latitude = (dict["location"]?["lat"] as! NSNumber).doubleValue
+        let longitude = (dict["location"]?["lon"]  as! NSNumber).doubleValue
+        
+        
+        let lat_deg = CLLocationDegrees(exactly: latitude)
+        let lon_deg = CLLocationDegrees(exactly: longitude)
+        location = CLLocation(latitude: lat_deg!, longitude: lon_deg!)
+        
         
         self.image = UIImage(named: "default_event")
         self.imageRoute = id
 //        assignImageForFile(named: id)
     }
     
-    func assignImageEventWith(id: String) {
+    func assignImageEventWith(id: String, completion: (() -> ())? = nil) {
         let image_directory = Storage.storage().reference().child("event_images")
         let imageFile = image_directory.child(id)
+        debugPrint("kay gonna pull the file for \(id)")
         
         // Download in memory with a maximum allowed size of 5MB (1 * 1024 * 1024 bytes)
         imageFile.getData(maxSize: 5 * 1024 * 1024) { data, error in
@@ -94,6 +105,9 @@ class Event:Equatable, Comparable {
             } else {
                 self.image = UIImage(data: data!)
             }
+            
+            debugPrint("finished1")
+            completion?()
         }
     }
     

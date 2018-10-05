@@ -47,7 +47,6 @@ extension NewSocialViewController {
         }
     
         let prevVC = (self.presentingViewController as! UINavigationController).viewControllers[0] as! FeedViewController
-        debugPrint(prevVC.save_the_quota)
         debugPrint("Pushing Event to Database")
         if prevVC.save_the_quota {
             pushEventObjectToDatabase(object: event_entry)
@@ -85,14 +84,12 @@ extension NewSocialViewController {
         }
         
         
-        debugPrint(event_entry)
     }
     
     func pushEventObjectToDatabase(object: [String: Any]) {
         let ref = Database.database().reference()
         let userRef = ref.child("events").child(object["id"] as! String)
         
-        debugPrint("Pushing Event to Database")
         
         userRef.updateChildValues(object, withCompletionBlock: { (error, ref) in
             if error != nil {
@@ -104,7 +101,7 @@ extension NewSocialViewController {
     }
     
     func addEventIdToUser(_ e_id: String) {
-        let username = (UIApplication.shared.delegate as! AppDelegate).currUsername
+        let username = LocalData.getLocalData(forKey: .username)
         
         let owned_events = Database.database().reference().child("users").child(username!).child("created_events")
         owned_events.updateChildValues([e_id : true], withCompletionBlock: { (error, ref) in

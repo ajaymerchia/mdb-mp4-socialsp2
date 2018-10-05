@@ -124,8 +124,10 @@ extension SignUpViewController {
                 dataRef.updateChildValues([uid: username])
                 
                 userRef.updateChildValues(values, withCompletionBlock: { (error, ref) in
-                    (UIApplication.shared.delegate as! AppDelegate).currUsername = username
-                    (UIApplication.shared.delegate as! AppDelegate).currFullname = name
+                    
+                    LocalData.putLocalData(forKey: .username, data: username)
+                    LocalData.putLocalData(forKey: .fullname, data: name)
+                    
                     self.dismiss(animated: true, completion: {})
                 })
             }

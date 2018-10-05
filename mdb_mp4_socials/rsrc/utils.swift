@@ -9,6 +9,43 @@
 import Foundation
 import UIKit
 
+class LocalData {
+    static let username = LocalData("username")
+    static let fullname = LocalData("fullname")
+    
+    var key_name: String!
+    
+    private init(_ key: String) {
+        key_name = key
+    }
+    
+    static func throwCredentialError(_ view: UIView) {
+        fatalError("Should not be able to access \(String(describing: view)) without being logged in and have data in UserDefaults ")
+    }
+    
+    static func throwCredentialError(_ view: UIViewController) {
+        fatalError("Should not be able to access \(String(describing: view)) without being logged in and have data in UserDefaults ")
+    }
+    
+    static func getLocalData(forKey: LocalData) -> String? {
+        let defaults = UserDefaults.standard
+        guard let str = defaults.string(forKey: forKey.key_name) else {
+            return nil
+        }
+        return str
+    }
+    
+    static func putLocalData(forKey: LocalData, data: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(data, forKey: forKey.key_name)
+    }
+    
+    static func deleteLocalData(forKey: LocalData) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: forKey.key_name)
+    }
+}
+
 class Utils {
     static let PADDING:CGFloat = 30
     
@@ -21,10 +58,9 @@ class Utils {
         given_view.insertSubview(backgroundImage, at: 0)
     }
     
-    static func getUserName(app: UIApplication) -> String {
-        return (app.delegate as! AppDelegate).currUsername!
-    }
     
+    
+
     /// Prints all Fonts that have been loaded into the application
     static func printFontFamilies() {
         for family in UIFont.familyNames.sorted() {

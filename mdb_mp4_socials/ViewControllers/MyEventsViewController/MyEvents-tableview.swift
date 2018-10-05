@@ -1,15 +1,15 @@
 //
-//  Feed-tableview.swift
-//  mdb_mp3_socials
+//  MyEvents-tableview.swift
+//  mdb_mp4_socials
 //
-//  Created by Ajay Raj Merchia on 9/28/18.
+//  Created by Ajay Raj Merchia on 10/5/18.
 //  Copyright © 2018 Ajay Raj Merchia. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
+extension MyEventsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return eventsList.count
     }
@@ -44,7 +44,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedEvent = eventsList[indexPath.row]
-        performSegue(withIdentifier: "feed2detail", sender: self)
+        performSegue(withIdentifier: "myevent2detail", sender: self)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
@@ -54,8 +54,4 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.setContentOffset(contentOffset, animated: false)
         
     }
-    
-    
-    
-    
 }

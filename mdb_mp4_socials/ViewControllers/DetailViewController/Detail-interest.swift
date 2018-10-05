@@ -39,7 +39,10 @@ extension DetailViewController {
             var interested_folks = value["interestedMembers"] as? [String: String] ?? [:]
             
             
-            let username = Utils.getUserName(app: UIApplication.shared)
+            guard let username = LocalData.getLocalData(forKey: .username) else {
+                LocalData.throwCredentialError(self)
+                return
+            }
             
             let alreadyThere = interested_folks.keys.contains(username)
             

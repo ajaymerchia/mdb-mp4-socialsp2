@@ -12,6 +12,8 @@ import FirebaseDatabase
 import FirebaseStorage
 
 extension FeedViewController {
+    
+    /// Deprecated: View Loader not working as desired
     func download_events() {
         let eventRef = Database.database().reference().child("events")
         let image_directory = Storage.storage().reference().child("event_images")
@@ -57,7 +59,9 @@ extension FeedViewController {
             group.notify(queue: DispatchQueue.main, execute: {
                 debugPrint()
                 self.eventsList = recentPull.sorted()
-                self.socialsList.reloadData()
+                self.reload(tableView: self.socialsList)
+                self.newEventListener()
+                self.initEventUpdater()
             })
         })
     }
@@ -78,10 +82,14 @@ extension FeedViewController {
                 e.imageRoute = previous_event.imageRoute
                 e.image = previous_event.image
                 
+                self.socialsList.setEditing(true, animated: false)
+                let cell_of_interest = self.socialsList.cellForRow(at: IndexPath(row: index, section: 0)) as? SocialCell
+                cell_of_interest?.initialCellFrom(event: e)
+                self.socialsList.setEditing(false, animated: false)
+
                 self.eventsList[index] = e
             }
             
-            self.socialsList.reloadData()
         })
         
     }
@@ -93,7 +101,7 @@ extension FeedViewController {
         if let insertHere = eventsList.index(of: event) {
             socialsList.beginUpdates()
             socialsList.insertRows(at: [
-                NSIndexPath(row: insertHere, section: 0) as IndexPath
+                IndexPath(row: insertHere, section: 0)
                 ], with: .automatic)
             socialsList.endUpdates()
         }
@@ -107,15 +115,17 @@ extension FeedViewController {
         eventRef.observe(DataEventType.childAdded, with: { (snapshot) in
             let newEvent = snapshot.value as? [String : AnyObject] ?? [:]
             
-            debugPrint("Got some new events YEET")
-            debugPrint(newEvent)
             
             let e = Event(id: snapshot.key, dict: newEvent)
+            
+            if self.eventsList.contains(e) {
+                return
+            }
+            
             if self.save_the_quota {
                 e.imageRoute = "DEFAULT"
                 e.image = UIImage(named: "default_event")
                 self.addEventToListAndAnimate(e)
-                self.socialsList.reloadData()   
             } else {
                 let imageFile = image_directory.child(snapshot.key)
                 // Download in memory with a maximum allowed size of 5MB (1 * 1024 * 1024 bytes)
@@ -129,7 +139,6 @@ extension FeedViewController {
                         e.image = UIImage(data: data!)
                     }
                     self.addEventToListAndAnimate(e)
-                    self.socialsList.reloadData()
                 }
             }
             

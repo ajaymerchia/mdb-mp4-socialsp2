@@ -12,7 +12,7 @@ import UIKit
 extension DetailViewController {
     func initUI() {
         width = view.frame.width
-        currUser = (UIApplication.shared.delegate as! AppDelegate).currFullname!
+        currUser = LocalData.getLocalData(forKey: .fullname)
         init_img()
         init_text()
         init_buttons()

@@ -46,7 +46,6 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         initUI()
-        debugPrint(event, event.event_id)
 
         // Do any additional setup after loading the view.
     }

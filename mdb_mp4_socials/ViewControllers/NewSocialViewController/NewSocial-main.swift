@@ -11,7 +11,7 @@ import CoreLocation
 class NewSocialViewController: UIViewController {
 
     var navbar: UINavigationBar!
-    var fullName = (UIApplication.shared.delegate as! AppDelegate).currFullname!
+    var fullName = LocalData.getLocalData(forKey: .fullname)
     var selectedLocation: [String : CLLocationDegrees] = [:]
     
     var eventNameField: UITextField!

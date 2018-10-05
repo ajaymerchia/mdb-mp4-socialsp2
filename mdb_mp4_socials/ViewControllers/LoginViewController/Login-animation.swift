@@ -29,13 +29,7 @@ extension LoginViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        currUsername = (UIApplication.shared.delegate as! AppDelegate).currUsername
         
-        if currUsername != nil {
-            getFullNameFrom(username: currUsername)
-        }
-        
-       
         UIView.animate(withDuration: 1,  delay: 0.5, animations: {() -> Void in
             
             let rotation_angle:CGFloat = 0.8

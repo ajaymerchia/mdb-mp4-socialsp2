@@ -25,7 +25,9 @@ extension FeedViewController {
         socialsList.register(SocialCell.self, forCellReuseIdentifier: "socialcell")
         socialsList.delegate = self
         socialsList.dataSource = self
+        socialsList.backgroundColor = .flatWhite
         socialsList.rowHeight = view.frame.height/3
+        socialsList.showsVerticalScrollIndicator = false
         view.addSubview(socialsList)
     }
     
@@ -38,8 +40,9 @@ extension FeedViewController {
             self.navigationItem.title = "Feed"
         self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Roman", size: 21)!], for: UIControl.State.normal)
         
-
-//        self.navigationItem.leftBarButtonItem?.image = UIImage(named: "logout")
+        
+        
+        self.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(named: "feed_inactive"), selectedImage: UIImage(named: "feed_active"))
         
     }
     
@@ -52,13 +55,13 @@ extension FeedViewController {
             print ("Error signing out: %@", signOutError)
         }
         
-        (UIApplication.shared.delegate as! AppDelegate).currFullname = nil
-        (UIApplication.shared.delegate as! AppDelegate).currUsername = nil
+        LocalData.deleteLocalData(forKey: .fullname)
+        LocalData.deleteLocalData(forKey: .username)
         
         self.presentingViewController?.dismiss(animated: true)
-    
-        
     }
+    
+    
     @objc func go_to_new_social() {
         performSegue(withIdentifier: "feed2new", sender: self)
     }

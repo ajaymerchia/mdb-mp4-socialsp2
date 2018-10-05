@@ -117,7 +117,10 @@ class SocialCell: UITableViewCell {
     }
     
     func updateInterestForEvent(id: String, amt: Int) {
-        let username = (UIApplication.shared.delegate as! AppDelegate).currUsername!
+        guard let username = LocalData.getLocalData(forKey: .username) else {
+            LocalData.throwCredentialError(self)
+            return
+        }
         let userInterestedRef = Database.database().reference().child("users").child(username).child("interested_events")
         let user_interested:Bool = amt > 0
         userInterestedRef.updateChildValues([id: user_interested])
@@ -133,7 +136,10 @@ class SocialCell: UITableViewCell {
             var count = value["numInterested"] as! Int
             var interested_folks = value["interestedMembers"] as? [String: String] ?? [:]
             
-            let username = Utils.getUserName(app: UIApplication.shared)
+            guard let username = LocalData.getLocalData(forKey: .username) else {
+                LocalData.throwCredentialError(self)
+                return
+            }
             
             let alreadyThere = interested_folks.keys.contains(username)
             

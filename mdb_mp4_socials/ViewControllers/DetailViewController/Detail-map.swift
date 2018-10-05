@@ -11,6 +11,7 @@ import MapKit
 import UIKit
 import CoreLocation
 
+
 extension DetailViewController {
     func buildMap(location: CLLocation) {
         let tabY = self.tabBarController!.tabBar.frame.minY
@@ -22,6 +23,11 @@ extension DetailViewController {
         mapView.layer.masksToBounds = true
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
+        
+        mapView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(openActionSheet)))
+        
+        
+        
 //        mapView.isUserLocationVisible = true
         
         annotation = MKPointAnnotation()
@@ -79,8 +85,8 @@ extension DetailViewController {
         UIApplication.shared.open(url!)
     }
     
-    @objc func openActionSheet(sender: UIButton) {
-        let actionSheet = UIAlertController(title: sender.titleLabel?.text, message: nil, preferredStyle: .actionSheet)
+    @objc func openActionSheet() {
+        let actionSheet = UIAlertController(title: locationInteraction.titleLabel?.text, message: nil, preferredStyle: .actionSheet)
         
         actionSheet.addAction(UIAlertAction(title: "Get Directions", style: .default, handler: { (action) -> Void in
             self.getDirectionsTo(location: self.event.location!)

@@ -18,10 +18,8 @@ extension DetailViewController {
         var delta = 0
         
         if interestButton.isSelected {
-            debugPrint("adding interest")
             delta = 1
         } else {
-            debugPrint("removing interested")
             delta = -1
         }
         

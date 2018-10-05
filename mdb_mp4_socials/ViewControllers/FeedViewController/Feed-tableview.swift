@@ -15,7 +15,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.height/2
+        return tableView.frame.height/1.8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -27,6 +27,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         // Initialize Cell
         cell.awakeFromNib()
         cell.initialCellFrom(event: eventsList[indexPath.row])
+
         guard let curr_user = LocalData.getLocalData(forKey: .fullname) else {
             return cell
         }
@@ -36,8 +37,8 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
             cell.interested.isSelected = true
         }
         
-        cell.setNeedsLayout()
-        cell.layoutIfNeeded()
+        cell.additionalSeparator.frame = CGRect(x: 0, y: tableView.frame.height/1.8 - cell.additionalSeparatorThickness, width: cell.contentView.frame.width + 100, height: cell.additionalSeparatorThickness)
+        
         
         return cell
     }
@@ -49,9 +50,9 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func reload(tableView: UITableView) {
-        let contentOffset = tableView.contentOffset
+//        let contentOffset = tableView.contentOffset
         tableView.reloadData()
-        tableView.setContentOffset(contentOffset, animated: false)
+//        tableView.setContentOffset(contentOffset, animated: false)
         
     }
     

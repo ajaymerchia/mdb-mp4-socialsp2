@@ -169,10 +169,10 @@
             </objects>
             <point key="canvasLocation" x="3596" y="81"/>
         </scene>
-        <!--View Controller-->
+        <!--Interested View Controller-->
         <scene sceneID="hqa-kA-OqG">
             <objects>
-                <viewController id="zcY-yJ-eoR" sceneMemberID="viewController">
+                <viewController id="zcY-yJ-eoR" customClass="InterestedViewController" customModule="mdb_mp4_socials" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wcg-Ta-pW9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

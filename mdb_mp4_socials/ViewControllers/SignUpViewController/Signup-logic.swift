@@ -76,7 +76,7 @@ extension SignUpViewController {
         photoRef.putData(photoData, metadata: nil) { (metadata, error) in
             guard metadata != nil else {
                 // Uh-oh, an error occurred!
-                debugPrint("error1")
+                debugPrint("error with photo upload")
                 self.signup_error(code: -1)
                 return
             }

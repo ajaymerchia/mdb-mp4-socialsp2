@@ -16,12 +16,12 @@ class FeedViewController: UIViewController {
     var selectedEvent: Event!
     let save_the_quota = false
     
+    var numReloads = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initUI()
-        debugPrint("view for \(String(describing: LocalData.getLocalData(forKey: .username)))")
-//        download_events()
         newEventListener()
         initEventUpdater()
         socialsList.reloadData()
@@ -30,7 +30,11 @@ class FeedViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        socialsList.reloadData()
+        if numReloads < 2 {
+            socialsList.reloadData()
+        }
+        numReloads = numReloads + 1
+
     }
     
 

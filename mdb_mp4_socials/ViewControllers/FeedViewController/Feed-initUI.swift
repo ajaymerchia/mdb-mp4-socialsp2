@@ -54,10 +54,10 @@ extension FeedViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        
+
         LocalData.deleteLocalData(forKey: .fullname)
         LocalData.deleteLocalData(forKey: .username)
-        
+
         self.presentingViewController?.dismiss(animated: true)
     }
     

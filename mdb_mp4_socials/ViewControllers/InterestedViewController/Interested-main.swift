@@ -7,11 +7,20 @@
 //
 
 import UIKit
-
+import JGProgressHUD
 class InterestedViewController: UIViewController {
 
+    var event: Event!
+    var interestList: [String: String]!
+    var userList: [User] = []
+    var displayedList: UITableView!
+    var navbar: UINavigationBar!
+    var hud: JGProgressHUD?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
+        getAllUserImages()
 
         // Do any additional setup after loading the view.
     }

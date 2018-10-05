@@ -15,6 +15,8 @@ class MyEventsViewController: UIViewController {
     var eventsList: [Event] = []
     var selectedEvent: Event!
     
+    var numReloads = 0
+    
     var hud: JGProgressHUD?
     
     override func viewDidLoad() {
@@ -26,7 +28,11 @@ class MyEventsViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        reload(tableView: socialsList)
+        if numReloads < 2 {
+            socialsList.reloadData()
+        }
+        numReloads = numReloads + 1
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {

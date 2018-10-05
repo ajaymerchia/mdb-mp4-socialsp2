@@ -93,7 +93,6 @@ class Event:Equatable, Comparable {
     func assignImageEventWith(id: String, completion: (() -> ())? = nil) {
         let image_directory = Storage.storage().reference().child("event_images")
         let imageFile = image_directory.child(id)
-        debugPrint("kay gonna pull the file for \(id)")
         
         // Download in memory with a maximum allowed size of 5MB (1 * 1024 * 1024 bytes)
         imageFile.getData(maxSize: 5 * 1024 * 1024) { data, error in
@@ -106,7 +105,6 @@ class Event:Equatable, Comparable {
                 self.image = UIImage(data: data!)
             }
             
-            debugPrint("finished1")
             completion?()
         }
     }

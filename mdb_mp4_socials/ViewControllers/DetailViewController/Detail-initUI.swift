@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import CoreLocation
+import MapKit
 
 extension DetailViewController {
     func initUI() {
@@ -17,6 +19,7 @@ extension DetailViewController {
         init_text()
         init_buttons()
         init_nav()
+        geocodeAndMap()
         
         if event.interestedMembers.values.contains(currUser) {
             interestButton.isSelected = true
@@ -114,10 +117,21 @@ extension DetailViewController {
         interestButton.titleLabel?.font = UIFont(name: "Avenir-Roman", size: 24)
 
         num_interested_label = UILabel(frame: CGRect(x: interestButton.frame.maxX + left_pad_mult-0.5 * marginal_padding, y: interestButton.frame.minY, width: width, height: 30))
-        num_interested_label.font = UIFont(name: "Avenir-Roman", size: 16)
+        num_interested_label.font = UIFont(name: "Avenir-Roman", size: 18)
 
         num_interested_label.text = "\(event.numInterested ?? 0) Interested"
         
+        
+        let viewPercentOfScreen: CGFloat = 0.4
+        
+        viewInterestList = UIButton(frame: CGRect(x: view.frame.width * (1-viewPercentOfScreen), y: num_interested_label.frame.minY, width: view.frame.width * viewPercentOfScreen - left_pad_mult*marginal_padding, height: 30))
+        viewInterestList.setTitle("Who's Interested?", for: .normal)
+        viewInterestList.setTitleColor(.flatSkyBlue, for: .normal)
+        viewInterestList.setTitleColor(.flatSkyBlueDark, for: .highlighted)
+        viewInterestList.titleLabel?.font = UIFont(name: "Avenir-Roman", size: 18)
+        viewInterestList.titleLabel?.textAlignment = .right
+        viewInterestList.contentHorizontalAlignment = .right
+        viewInterestList.addTarget(self, action: #selector(goToInterestList), for: .touchUpInside)
         
         
         interested_list = UILabel(frame:CGRect(x: Utils.PADDING, y: num_interested_label.frame.maxY + Utils.PADDING, width: view.frame.width, height: 20))
@@ -128,9 +142,21 @@ extension DetailViewController {
 
         view.addSubview(interestButton)
         view.addSubview(num_interested_label)
-        view.addSubview(interested_list)
-
-        
-
+        view.addSubview(viewInterestList)
+//        view.addSubview(interested_list)
     }
+    
+
+    
+    @objc func goToInterestList() {
+        performSegue(withIdentifier: "detail2interested", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let interestedVC = segue.destination as? InterestedViewController {
+            interestedVC.interestList = event.interestedMembers
+            interestedVC.event = event
+        }
+    }
+    
 }

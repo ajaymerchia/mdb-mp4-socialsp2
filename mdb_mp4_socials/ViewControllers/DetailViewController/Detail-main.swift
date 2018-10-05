@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 
 class DetailViewController: UIViewController {
 
@@ -25,6 +26,11 @@ class DetailViewController: UIViewController {
     var event_time: UILabel!
     
     var interestButton: UIButton!
+    var viewInterestList: UIButton!
+    
+    var mapView: MKMapView!
+    var locationInteraction: UIButton!
+    var annotation: MKPointAnnotation!
     
     
     var width: CGFloat!
@@ -32,19 +38,8 @@ class DetailViewController: UIViewController {
     let left_pad_mult: CGFloat = 7
     
     
-    
-    
-    
-   
-
-    
-    
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         initUI()
 
         // Do any additional setup after loading the view.

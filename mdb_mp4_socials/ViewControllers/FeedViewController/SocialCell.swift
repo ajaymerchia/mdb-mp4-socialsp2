@@ -24,11 +24,16 @@ class SocialCell: UITableViewCell {
     
     var currName: String!
     
+    let additionalSeparatorThickness:CGFloat = 20
+    var additionalSeparator: UIView!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
 //        contentView.backgroundColor = Utils.generateRandomColor()
+        
+        clipsToBounds = true
 
         let width = contentView.frame.width
         let marginal_padding:CGFloat = 2.5
@@ -52,9 +57,9 @@ class SocialCell: UITableViewCell {
         socialDesc.font = UIFont(name: "Avenir-Roman", size: 16)
 
     
-        let additionalSeparatorThickness:CGFloat = 20
         
-        let additionalSeparator = UIView(frame: CGRect(x: 0, y: contentView.frame.height - additionalSeparatorThickness, width: contentView.frame.width, height: additionalSeparatorThickness))
+        
+        additionalSeparator = UIView(frame: CGRect(x: 0, y: contentView.frame.height - additionalSeparatorThickness, width: contentView.frame.width, height: additionalSeparatorThickness))
         
         additionalSeparator.backgroundColor = UIColor.flatWhite
         
@@ -74,7 +79,6 @@ class SocialCell: UITableViewCell {
         
         
         
-        
         contentView.addSubview(additionalSeparator)
         contentView.addSubview(underline)
         
@@ -84,6 +88,7 @@ class SocialCell: UITableViewCell {
         contentView.addSubview(socialHost)
         contentView.addSubview(interested)
         contentView.addSubview(numInterested)
+
         
     }
     

@@ -15,7 +15,7 @@ extension MyEventsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return view.frame.height/2
+        return tableView.frame.height/1.8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -35,6 +35,8 @@ extension MyEventsViewController: UITableViewDelegate, UITableViewDataSource {
         if eventsList[indexPath.row].interestedMembers.values.contains(curr_user) {
             cell.interested.isSelected = true
         }
+        
+        cell.additionalSeparator.frame = CGRect(x: 0, y: tableView.frame.height/1.8 - cell.additionalSeparatorThickness, width: cell.contentView.frame.width + 100, height: cell.additionalSeparatorThickness)
         
         cell.setNeedsLayout()
         cell.layoutIfNeeded()

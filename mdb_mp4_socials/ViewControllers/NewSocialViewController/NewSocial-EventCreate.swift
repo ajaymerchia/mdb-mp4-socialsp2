@@ -73,14 +73,7 @@ extension NewSocialViewController {
             // Metadata contains file metadata such as size, content-type.
             // let size = metadata.size
             // You can also access to download URL after upload.
-            photoRef.downloadURL { (url, error) in
-                guard url != nil else {
-                    // Uh-oh, an error occurred!
-                    debugPrint("error2")
-                    return
-                }
-                self.pushEventObjectToDatabase(object: event_entry)
-            }
+            self.pushEventObjectToDatabase(object: event_entry)
         }
         
         

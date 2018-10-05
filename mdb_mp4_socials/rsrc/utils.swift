@@ -58,7 +58,9 @@ class Utils {
         given_view.insertSubview(backgroundImage, at: 0)
     }
     
-    
+    static func makeURLSafe(_ url: String) -> String{
+        return url.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
     
 
     /// Prints all Fonts that have been loaded into the application

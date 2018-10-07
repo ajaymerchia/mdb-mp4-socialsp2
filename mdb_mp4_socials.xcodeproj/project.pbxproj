@@ -284,8 +284,8 @@
 		B73F9C3721658C5D00D001D9 /* rsrc */ = {
 			isa = PBXGroup;
 			children = (
-				B73F9C3821658C5D00D001D9 /* rgba.swift */,
 				B73F9C3921658C5D00D001D9 /* FontGenerator */,
+				B73F9C3821658C5D00D001D9 /* rgba.swift */,
 				B73F9C3B21658C5D00D001D9 /* utils.swift */,
 				B73F9C592165D16A00D001D9 /* Constants.swift */,
 			);

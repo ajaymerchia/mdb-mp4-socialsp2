@@ -39,7 +39,7 @@ extension LyftRideViewController {
     
     func initNav() {
         navbar = UINavigationBar(frame: CGRect(x: 0, y: Utils.PADDING, width: view.frame.width, height: 50));
-        navbar.tintColor = UIColor.flatSkyBlueDark
+        navbar.tintColor = UIColor.flatGray
         navbar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navbar.shadowImage = UIImage()
         navbar.isTranslucent = true

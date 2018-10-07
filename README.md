@@ -6,7 +6,7 @@ This is MDB Socials reinvented. Not only does it have all the functionality of [
 
 ## Screenshots
 ### MDB Socials: The Second
-<img src="screenshots/login.png" width="200">
+<img src="screenshots/login.png" width="400">
 
 | <img src="screenshots/signup.png" width="200">        | <img src="screenshots/feed.png" width="200">           | <img src="screenshots/details.png" width="200">  |
 | :-------------: | :-------------: | :-------------: |

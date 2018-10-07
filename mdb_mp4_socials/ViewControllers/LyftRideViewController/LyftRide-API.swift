@@ -93,11 +93,14 @@ extension LyftRideViewController {
     
     
     func lyftFailed() {
-        
+        for label in tierPrices {
+            lyftFailed(label: label)
+        }
     }
     
     func lyftFailed(label: UILabel) {
-        
+        label.text = "Not Available"
+        label.adjustsFontSizeToFitWidth = true
     }
     
     func getAuthToken() {

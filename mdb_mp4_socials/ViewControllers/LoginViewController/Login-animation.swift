@@ -45,8 +45,9 @@ extension LoginViewController {
             
             performSegue(withIdentifier: "login2feed", sender: self)
             LocalData.deleteLocalData(forKey: .forwardIndicator)
-            
         }
+        
+        
     
         
     }

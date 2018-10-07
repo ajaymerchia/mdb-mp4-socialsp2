@@ -163,7 +163,9 @@ extension SignUpViewController {
         sign_up_button = UIButton(frame: CGRect(x: 3.5*Utils.PADDING, y: password_field.frame.maxY + internal_padding, width: view.frame.width - 7*Utils.PADDING, height: 60))
         sign_up_button.setTitle("Sign Up!", for: .normal)
         sign_up_button.titleLabel?.font = UIFont(name: "Avenir-Roman", size: 30)
-        sign_up_button.backgroundColor = UIColor.flatSkyBlue
+        sign_up_button.setBackgroundColor(color: .flatSkyBlue, forState: .normal)
+        sign_up_button.setBackgroundColor(color: .flatSkyBlueDark, forState: .highlighted)
+        sign_up_button.clipsToBounds = true
         sign_up_button.layer.cornerRadius = 5
 
         view.addSubview(sign_up_button)

@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import JGProgressHUD
 
 class NewSocialViewController: UIViewController {
 
@@ -23,6 +24,8 @@ class NewSocialViewController: UIViewController {
     var eventImgPicker: UIButton!
     var imgPickerPrompt: UILabel!
     var createEvent: UIButton!
+    
+    var hud:JGProgressHUD!
     
     override func viewDidLoad() {
         super.viewDidLoad()

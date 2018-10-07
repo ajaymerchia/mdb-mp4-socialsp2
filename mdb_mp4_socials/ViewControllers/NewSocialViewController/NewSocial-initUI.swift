@@ -92,7 +92,7 @@ extension NewSocialViewController {
         eventLocationButt.addTarget(self, action: #selector(locationPicker), for: .touchUpInside)
         view.addSubview(eventLocationButt)
         
-        eventDescField = UITextView(frame: CGRect(x: Utils.PADDING, y: eventLocationButt.frame.maxY+Utils.PADDING, width: view.frame.width - 2*Utils.PADDING, height: 50))
+        eventDescField = UITextView(frame: CGRect(x: Utils.PADDING, y: eventLocationButt.frame.maxY, width: view.frame.width - 2*Utils.PADDING, height: 50 + Utils.PADDING))
         eventDescField.delegate = self
         eventDescField.text = "Event Description"
         eventDescField.textColor = UIColor.lightGray
@@ -100,6 +100,7 @@ extension NewSocialViewController {
 
         eventDescField.textContainer.maximumNumberOfLines = 2
         eventDescField.textContainer.lineBreakMode = .byTruncatingTail
+        eventDescField.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
 
         view.addSubview(eventDescField)
     }
@@ -122,7 +123,10 @@ extension NewSocialViewController {
     
     func init_button() {
         createEvent = UIButton(frame: CGRect(x: 50, y: view.frame.height-75, width: view.frame.width-100, height: 50))
-        createEvent.backgroundColor = UIColor.flatSkyBlueDark
+        
+        createEvent.setBackgroundColor(color: .flatSkyBlue, forState: .normal)
+        createEvent.setBackgroundColor(color: .flatSkyBlueDark, forState: .highlighted)
+        createEvent.clipsToBounds = true
         createEvent.layer.cornerRadius = 5
         createEvent.setTitle("Create Event", for: .normal)
         createEvent.addTarget(self, action: #selector(createTheEvent), for: .touchUpInside)

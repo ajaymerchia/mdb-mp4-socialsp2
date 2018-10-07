@@ -11,11 +11,12 @@ import UIKit
 import FirebaseStorage
 import FirebaseDatabase
 import JGProgressHUD
+import CoreLocation
 
 extension NewSocialViewController {
     @objc func createTheEvent() {
         createEvent.isUserInteractionEnabled = false
-        let hud = JGProgressHUD(style: .light)
+        hud = JGProgressHUD(style: .light)
         hud.textLabel.text = "Creating Event..."
         hud.show(in: self.view)
         
@@ -30,7 +31,9 @@ extension NewSocialViewController {
         event_entry["numInterested"] = 0
         event_entry["interestedMembers"] = []
         
+        
         event_entry["location"] = selectedLocation
+        
         
         let event_id = String(format:"%02X", eventNameField.text!.hashValue) + String(format: "%02X", Date.init().description.hashValue)
         
@@ -40,6 +43,11 @@ extension NewSocialViewController {
             if let str = value as? String {
                 if str == "" || str == "Event Description"{
                     displayAlert(title: "Oops", message: "Please fill out the " + key)
+                    return
+                }
+            } else if let loc = value as? [String : CLLocationDegrees] {
+                if !(loc.keys.contains("lon") && loc.keys.contains("lat")) {
+                    displayAlert(title: "Oops", message: "Please select a location")
                     return
                 }
             }
@@ -104,6 +112,8 @@ extension NewSocialViewController {
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(defaultAction)
         self.present(alert, animated: true, completion: nil)
+        hud?.dismiss()
+        createEvent.isUserInteractionEnabled = true
     }
 }
 

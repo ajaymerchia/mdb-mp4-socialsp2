@@ -150,6 +150,8 @@ extension LoginViewController {
     override func viewDidDisappear(_ animated: Bool) {
         self.hud?.dismiss()
         self.advance_to_login.isUserInteractionEnabled = true
+        self.sign_up_button.isUserInteractionEnabled = true
+
         username_field.text = ""
         password_field.text = ""
     }
@@ -158,6 +160,7 @@ extension LoginViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(defaultAction)
+        hud?.dismiss()
         self.present(alert, animated: true, completion: nil)
     }
 }

@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         checkForAutoLogin()
         connect_buttons()
         
-
+        
 //        Utils.printFontFamilies()
     }
 

@@ -127,6 +127,7 @@ extension SignUpViewController {
                     
                     LocalData.putLocalData(forKey: .username, data: username)
                     LocalData.putLocalData(forKey: .fullname, data: name)
+                    LocalData.putLocalData(forKey: .forwardIndicator, data: LocalData.forwardIndicator.key_name)
                     
                     self.dismiss(animated: true, completion: {})
                 })

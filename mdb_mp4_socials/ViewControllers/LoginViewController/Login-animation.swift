@@ -36,11 +36,18 @@ extension LoginViewController {
             let move_distance:CGFloat = 80
             self.socialman[0].transform = CGAffineTransform(rotationAngle: rotation_angle).concatenating(CGAffineTransform(translationX: move_distance, y: 0))
             self.socialman[1].transform = CGAffineTransform(rotationAngle: -rotation_angle).concatenating(CGAffineTransform(translationX: -move_distance, y: 0))
-
-            
         })
-    
         
+        if LocalData.getLocalData(forKey: .forwardIndicator) == LocalData.forwardIndicator.key_name {
+            
+            self.currFullName = LocalData.getLocalData(forKey: .fullname)
+            self.currUsername = LocalData.getLocalData(forKey: .username)
+            
+            performSegue(withIdentifier: "login2feed", sender: self)
+            LocalData.deleteLocalData(forKey: .forwardIndicator)
+            
+        }
+    
         
     }
 }

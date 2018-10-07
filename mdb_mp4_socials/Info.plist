@@ -47,6 +47,10 @@
 	<string>Upload photos with MDB Socials</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Find socials near you</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>lyft</string>
+	</array>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Playball-Regular.ttf</string>

@@ -35,8 +35,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkForAutoLogin()
         initUI()
+        checkForAutoLogin()
         connect_buttons()
         
 

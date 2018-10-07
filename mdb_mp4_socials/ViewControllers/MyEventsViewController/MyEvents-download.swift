@@ -13,11 +13,12 @@ import JGProgressHUD
 
 extension MyEventsViewController {
     
-    func beginDownloadofEvents() {
+    @objc func beginDownloadofEvents() {
         hud = JGProgressHUD(style: .light)
         hud?.textLabel.text = "Loading your Events"
         hud?.show(in: self.view)
         getMyEventKeys()
+        initializeReloader()
     }
     
     func getMyEventKeys() {
@@ -87,6 +88,7 @@ extension MyEventsViewController {
             
             for (eventId, eventMap) in allEvents {
                 group.enter()
+                
                 if !events.contains(eventId) {
                     group.leave()
                     continue
@@ -115,6 +117,16 @@ extension MyEventsViewController {
         hud?.dismiss()
     }
     
+    func initializeReloader() {
+         refreshControl = UIRefreshControl()
+        if #available(iOS 10.0, *) {
+            socialsList.refreshControl = refreshControl
+        } else {
+            socialsList.addSubview(refreshControl)
+        }
+        
+        refreshControl.addTarget(self, action: #selector(beginDownloadofEvents), for: .valueChanged)
+    }
     
     
     
@@ -134,9 +146,9 @@ extension MyEventsViewController {
             }
             
             if let index = self.eventsList.index(of: e) {
-                
                 if e.poster != name && !e.interestedMembers.keys.contains(name) {
                     self.socialsList.beginUpdates()
+                    
                     self.eventsList.remove(at: index)
                     self.socialsList.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
                     self.socialsList.endUpdates()

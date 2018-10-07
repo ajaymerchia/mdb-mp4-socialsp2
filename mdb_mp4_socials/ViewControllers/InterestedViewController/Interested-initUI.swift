@@ -52,6 +52,5 @@ extension InterestedViewController {
     
     @objc func goBack() {
         self.dismiss(animated: true, completion: nil)
-
     }
 }

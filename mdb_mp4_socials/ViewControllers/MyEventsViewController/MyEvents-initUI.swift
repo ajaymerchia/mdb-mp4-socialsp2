@@ -21,12 +21,11 @@ extension MyEventsViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.done, target: self, action: #selector(logout))
         
+        self.navigationItem.leftBarButtonItem?.tintColor = .red
         
-        self.navigationItem.title = "My Events"
-        self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Roman", size: 21)!], for: UIControl.State.normal)
+        self.navigationItem.title = "Your Events"
         
-        
-        self.tabBarItem = UITabBarItem(title: "My Events", image: UIImage(named: "myevents_inactive"), selectedImage: UIImage(named: "myevents_active2"))
+        self.tabBarItem = UITabBarItem(title: "My Events", image: UIImage(named: "events_inactive"), selectedImage: UIImage(named: "events_active"))
         
         
     }

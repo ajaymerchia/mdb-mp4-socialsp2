@@ -33,6 +33,7 @@ extension FeedViewController {
                 self.socialsList.setEditing(true, animated: false)
                 let cell_of_interest = self.socialsList.cellForRow(at: IndexPath(row: index, section: 0)) as? SocialCell
                 cell_of_interest?.initialCellFrom(event: e)
+                cell_of_interest?.interested.isSelected = e.interestedMembers.keys.contains(LocalData.getLocalData(forKey: .username)!)
                 self.socialsList.setEditing(false, animated: false)
 
                 self.eventsList[index] = e

@@ -4,7 +4,7 @@
 target 'mdb_mp4_socials' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
-  
+
   # Pods for mdb_mp4_socials
 
   target 'mdb_mp4_socialsTests' do
@@ -17,14 +17,21 @@ target 'mdb_mp4_socials' do
     # Pods for testing
   end
   
+  
   pod 'LocationPicker'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'JGProgressHUD'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  
   pod 'IQKeyboardManager'
   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git', :branch => 'wip/swift4', :inhibit_warnings => true
 
-  
+  pod 'LyftSDK/API'
+
+#  pod 'LyftSDK'
+
 end

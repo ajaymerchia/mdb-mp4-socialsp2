@@ -12,6 +12,7 @@ import UIKit
 class LocalData {
     static let username = LocalData("username")
     static let fullname = LocalData("fullname")
+    static let forwardIndicator = LocalData("forwarding")
     
     var key_name: String!
     

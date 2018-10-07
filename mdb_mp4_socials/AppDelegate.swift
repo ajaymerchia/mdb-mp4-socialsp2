@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import IQKeyboardManager
+import LyftSDK
 
 
 @UIApplicationMain
@@ -20,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         IQKeyboardManager.shared().isEnabled = true
+        LyftConfiguration.developer = (token: "uUIKFc7HsxY9xP+7KVnRqK49tU/2+HIdF64rJkfugZbBrTwM5z0HC4G1aCAZ7+CMGEzzs20WcEVijE6NITMfyGkZt6GHZTzFMJ5LrAq/ymlXNEEfjgt9BkM=", clientId: "iUPYolLGocwK")
         
         return true
     }

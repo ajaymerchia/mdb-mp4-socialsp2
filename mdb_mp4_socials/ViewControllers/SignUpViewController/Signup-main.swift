@@ -24,6 +24,7 @@ class SignUpViewController: UIViewController {
     var edit_img_prompt: UILabel!
     
     
+    
     var currUsername: String!
     var restrictedUsernames: [String] = []
     
@@ -33,10 +34,12 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         initUI()
         connect_buttons()
-        
-        
         // Do any additional setup after loading the view.
     }
+    
+   
+    
+    
     
     
     /*

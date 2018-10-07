@@ -45,13 +45,6 @@ extension NewSocialViewController {
             }
             
         }
-    
-        let prevVC = (self.presentingViewController as! UINavigationController).viewControllers[0] as! FeedViewController
-        debugPrint("Pushing Event to Database")
-        if prevVC.save_the_quota {
-            pushEventObjectToDatabase(object: event_entry)
-            return
-        }
         
         
         

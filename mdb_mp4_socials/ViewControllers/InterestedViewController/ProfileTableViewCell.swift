@@ -14,6 +14,8 @@ class ProfileTableViewCell: UITableViewCell {
     var profileImage: UIImageView!
     var profileName: UILabel!
     var triggerEmail: UIButton!
+    var triggerEmailIcon: UIButton!
+
     
     var userEmail: String!
     var eventName: String!
@@ -36,12 +38,22 @@ class ProfileTableViewCell: UITableViewCell {
         profileName.adjustsFontSizeToFitWidth = true
         profileName.font = UIFont(name: "Avenir-Medium", size: 24)
         
-        triggerEmail = UIButton(frame: CGRect(x: profileName.frame.minX, y: profileName.frame.maxY, width: email_size, height: email_size))
-        triggerEmail.setImage(UIImage(named: "test_butt"), for: .normal)
+        
+        triggerEmail = UIButton(frame: CGRect(x: profileName.frame.minX, y: profileName.frame.maxY, width: contentView.frame.width - (profileImage.frame.maxX + Utils.PADDING), height: 30))
+        triggerEmail.titleLabel?.font = UIFont(name: "Avenir-Light", size: 16)
+        triggerEmail.setTitleColor(UIColor.flatGrayDark, for: .normal)
+        triggerEmail.contentHorizontalAlignment = .left
+        
+
+        triggerEmailIcon = UIButton(frame: CGRect(x: contentView.frame.width-(email_size + Utils.PADDING), y: profileName.frame.maxY, width: email_size, height: email_size))
+        triggerEmailIcon.center = CGPoint(x: triggerEmail.frame.maxX, y: profileImage.frame.midY)
+        triggerEmailIcon.setImage(UIImage(named: "email_icon"), for: .normal)
+        triggerEmailIcon.imageView?.contentMode = .scaleAspectFit
         
         contentView.addSubview(profileImage)
         contentView.addSubview(profileName)
         contentView.addSubview(triggerEmail)
+        contentView.addSubview(triggerEmailIcon)
         
     }
     
@@ -51,7 +63,7 @@ class ProfileTableViewCell: UITableViewCell {
         
         profileName.frame = CGRect(x: profileImage.frame.maxX + Utils.PADDING, y: profileImage.frame.minY + 10, width: contentView.frame.width - (profileImage.frame.maxX + Utils.PADDING), height: 30)
         
-        triggerEmail.frame = CGRect(x: profileName.frame.minX, y: profileName.frame.maxY, width: email_size, height: email_size)
+        triggerEmail.frame = CGRect(x: profileName.frame.minX, y: profileName.frame.maxY, width: contentView.frame.width - (profileImage.frame.maxX + Utils.PADDING), height: 30)
         
         
     }
@@ -63,6 +75,7 @@ class ProfileTableViewCell: UITableViewCell {
     func initializeViewFrom(user: User, event: Event) {
         profileImage.image = user.image
         profileName.text = user.properName
+        triggerEmail.setTitle(user.email, for: .normal)
         userEmail = user.email
         eventName = event.title
     }

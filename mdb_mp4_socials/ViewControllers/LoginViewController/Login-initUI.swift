@@ -123,12 +123,15 @@ extension LoginViewController {
         advance_to_login.backgroundColor = UIColor.flatSkyBlueDark
         advance_to_login.layer.cornerRadius = 5
         advance_to_login.addTarget(self, action: #selector(revealLogin), for: .touchUpInside)
+        advance_to_login.isUserInteractionEnabled = false
         
         view.addSubview(advance_to_login)
 
         sign_up_button = UIButton(frame: CGRect(x: 4*Utils.PADDING, y: view.frame.height-60, width: view.frame.width - 8*Utils.PADDING, height: 40))
         sign_up_button.setTitle("New Here? Sign Up!", for: .normal)
         sign_up_button.setTitleColor(UIColor.flatGrayDark, for: .normal)
+        sign_up_button.isUserInteractionEnabled = false
+
 
         view.addSubview(sign_up_button)
     }

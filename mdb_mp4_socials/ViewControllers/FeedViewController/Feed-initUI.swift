@@ -36,10 +36,10 @@ extension FeedViewController {
         
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItem.Style.done, target: self, action: #selector(logout))
         
+        self.navigationItem.leftBarButtonItem?.tintColor = .red
         
-            self.navigationItem.title = "Feed"
-        self.navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Avenir-Roman", size: 21)!], for: UIControl.State.normal)
-        
+        self.navigationItem.title = "Hello, \(LocalData.getLocalData(forKey: .fullname)!)"
+     
         
         
         self.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(named: "feed_inactive"), selectedImage: UIImage(named: "feed_active"))

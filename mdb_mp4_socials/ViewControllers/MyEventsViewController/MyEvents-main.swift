@@ -14,6 +14,7 @@ class MyEventsViewController: UIViewController {
     var socialsList: UITableView!
     var eventsList: [Event] = []
     var selectedEvent: Event!
+    var refreshControl: UIRefreshControl!
     
     var numReloads = 0
     

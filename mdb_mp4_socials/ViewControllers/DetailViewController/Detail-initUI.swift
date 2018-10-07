@@ -156,6 +156,9 @@ extension DetailViewController {
         if let interestedVC = segue.destination as? InterestedViewController {
             interestedVC.interestList = event.interestedMembers
             interestedVC.event = event
+        } else if let lyftVC = segue.destination as? LyftRideViewController {
+            lyftVC.event = event
+            lyftVC.locationDesc = locationInteraction.titleLabel?.text
         }
     }
     

@@ -105,10 +105,12 @@ extension LoginViewController {
             }) { (error) in
                 print(error.localizedDescription)
                 self.advance_to_login.isUserInteractionEnabled = true
+                self.sign_up_button.isUserInteractionEnabled = true
                 self.hud?.dismiss()
             }
-            
-            
+        } else {
+            self.advance_to_login.isUserInteractionEnabled = true
+            self.sign_up_button.isUserInteractionEnabled = true
         }
     }
     
@@ -121,6 +123,7 @@ extension LoginViewController {
             let name = value?["fullname"] as? String ?? ""
 
             self.currFullName = name
+            self.currUsername = username
             self.advance_to_login.isUserInteractionEnabled = true            
             self.performSegue(withIdentifier: "login2feed", sender: self)
             // ...
@@ -137,8 +140,11 @@ extension LoginViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        LocalData.putLocalData(forKey: .username, data: currUsername)
-        LocalData.putLocalData(forKey: .fullname, data: currFullName)
+        if segue.identifier == "login2feed" {
+            LocalData.putLocalData(forKey: .username, data: currUsername)
+            LocalData.putLocalData(forKey: .fullname, data: currFullName)
+        }
+        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

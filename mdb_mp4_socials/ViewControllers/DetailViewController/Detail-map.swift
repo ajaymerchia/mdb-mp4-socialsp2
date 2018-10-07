@@ -17,9 +17,12 @@ extension DetailViewController {
         let tabY = self.tabBarController!.tabBar.frame.minY
         let mapY = locationInteraction.frame.maxY + marginal_padding/2
         
-        let mapView = MKMapView(frame: CGRect(x: left_pad_mult*marginal_padding, y: mapY, width: view.frame.width - 2*left_pad_mult*marginal_padding, height: tabY - mapY - marginal_padding/2))
+//        mapView = MKMapView(frame: CGRect(x: left_pad_mult*marginal_padding, y: mapY, width: view.frame.width - 2*left_pad_mult*marginal_padding, height: tabY - mapY - marginal_padding/2))
+//        mapView.layer.cornerRadius = 10
+
+        mapView = MKMapView(frame: CGRect(x: 0, y: mapY, width: view.frame.width, height: tabY - mapY))
+        
         mapView.mapType = .standard
-        mapView.layer.cornerRadius = 10
         mapView.layer.masksToBounds = true
         mapView.showsUserLocation = true
         mapView.setUserTrackingMode(.follow, animated: true)
@@ -27,14 +30,31 @@ extension DetailViewController {
         mapView.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(openActionSheet)))
         
         
+        let recenterButton = UIButton(frame: CGRect(x: mapView.frame.maxX - 1.2*Utils.PADDING, y: mapView.frame.maxY - 1.2*Utils.PADDING, width: Utils.PADDING, height: Utils.PADDING))
+        recenterButton.setImage(UIImage(named: "recenter"), for: .normal)
+        recenterButton.layer.backgroundColor = UIColor.white.cgColor
+        recenterButton.layer.cornerRadius = Utils.PADDING/2
+        let insetamt:CGFloat = 3
+        recenterButton.imageEdgeInsets = UIEdgeInsets(top: insetamt, left: insetamt, bottom: insetamt, right: insetamt)
+
+        recenterButton.imageView?.layer.cornerRadius = Utils.PADDING/2
+        recenterButton.imageView?.contentMode = .scaleAspectFit
+        recenterButton.addTarget(self, action: #selector(recenter), for: .touchUpInside)
+        
         
 //        mapView.isUserLocationVisible = true
-        
         annotation = MKPointAnnotation()
         annotation.coordinate = location.coordinate
         mapView.addAnnotation(annotation)
         mapView.setRegion(MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+        
         view.addSubview(mapView)
+        view.addSubview(recenterButton)
+
+    }
+    
+    @objc func recenter() {
+        mapView.setRegion(MKCoordinateRegion(center: annotation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
     }
     
     func geocodeAndMap() {
@@ -92,7 +112,7 @@ extension DetailViewController {
             self.getDirectionsTo(location: self.event.location!)
         }))
         actionSheet.addAction(UIAlertAction(title: "Call a Lyft", style: .default, handler: { (action) -> Void in
-            self.getDirectionsTo(location: self.event.location!)
+            self.performSegue(withIdentifier: "detail2lyft", sender: self)
         }))
         
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -100,5 +120,6 @@ extension DetailViewController {
         self.present(actionSheet, animated: true)
         
     }
+
     
 }

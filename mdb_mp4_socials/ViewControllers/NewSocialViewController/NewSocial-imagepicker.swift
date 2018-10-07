@@ -32,7 +32,6 @@ extension NewSocialViewController: UIImagePickerControllerDelegate, UINavigation
         picker.delegate = self
         if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             picker.sourceType = preferredType
-            picker.allowsEditing = true
             picker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
             self.present(picker, animated: true, completion: nil)
         }

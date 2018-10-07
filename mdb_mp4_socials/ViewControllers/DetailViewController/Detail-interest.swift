@@ -46,9 +46,11 @@ extension DetailViewController {
             
             if !alreadyThere && amt > 0 {
                 interested_folks[username] = self.currUser
+                self.event.interestedMembers[username] = self.currUser
                 count += amt
             } else if alreadyThere && amt < 0{
                 interested_folks.removeValue(forKey: username)
+                self.event.interestedMembers.removeValue(forKey: username)
                 count += amt
             }
 

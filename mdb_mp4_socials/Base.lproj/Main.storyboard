@@ -163,6 +163,7 @@
                     </view>
                     <connections>
                         <segue destination="zcY-yJ-eoR" kind="presentation" identifier="detail2interested" id="GKN-n3-CHF"/>
+                        <segue destination="Vma-Sb-sE8" kind="presentation" identifier="detail2lyft" id="33p-j1-j0q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lZ2-6s-tDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -182,7 +183,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M7o-EP-r6j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4358" y="68"/>
+            <point key="canvasLocation" x="4492" y="-251"/>
+        </scene>
+        <!--Lyft Ride View Controller-->
+        <scene sceneID="eYq-zQ-xZr">
+            <objects>
+                <viewController id="Vma-Sb-sE8" customClass="LyftRideViewController" customModule="mdb_mp4_socials" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rAH-5I-56a">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ywh-pW-lwB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gFu-Sr-8yF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4492" y="504"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3jv-VA-17y">
@@ -198,7 +214,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e5f-Ga-fit" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="-645"/>
+            <point key="canvasLocation" x="3596" y="-1058"/>
         </scene>
         <!--New Social View Controller-->
         <scene sceneID="5ZP-jM-BZr">
@@ -214,7 +230,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZBa-8m-IA2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4358" y="-644"/>
+            <point key="canvasLocation" x="4492" y="-1058"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -15,6 +15,7 @@ import JGProgressHUD
 extension InterestedViewController {
     func getAllUserImages() {
         hud = JGProgressHUD(style: .light)
+        hud?.textLabel.text = "Fetching Profiles"
         hud?.show(in: self.view)
         
         debugPrint("getting user images")

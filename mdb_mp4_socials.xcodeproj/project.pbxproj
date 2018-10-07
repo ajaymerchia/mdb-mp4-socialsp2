@@ -43,7 +43,6 @@
 		B7541BD821682B9700F6E806 /* LyftRide-map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7541BD721682B9700F6E806 /* LyftRide-map.swift */; };
 		B7541BDA2168388100F6E806 /* LyftRide-API.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7541BD92168388100F6E806 /* LyftRide-API.swift */; };
 		B7D244BD2166BB0500FE1CC4 /* MyEvents-main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D244BC2166BB0500FE1CC4 /* MyEvents-main.swift */; };
-		B7D244BF2166BB2500FE1CC4 /* EditEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D244BE2166BB2500FE1CC4 /* EditEventViewController.swift */; };
 		B7D244C22166D71C00FE1CC4 /* MyEvents-initUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D244C12166D71C00FE1CC4 /* MyEvents-initUI.swift */; };
 		B7D244C42166DD9200FE1CC4 /* TabBarPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D244C32166DD9200FE1CC4 /* TabBarPreloader.swift */; };
 		B7D244C82167156A00FE1CC4 /* MyEvents-download.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D244C72167156A00FE1CC4 /* MyEvents-download.swift */; };
@@ -122,7 +121,6 @@
 		B7541BD721682B9700F6E806 /* LyftRide-map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyftRide-map.swift"; sourceTree = "<group>"; };
 		B7541BD92168388100F6E806 /* LyftRide-API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LyftRide-API.swift"; sourceTree = "<group>"; };
 		B7D244BC2166BB0500FE1CC4 /* MyEvents-main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyEvents-main.swift"; sourceTree = "<group>"; };
-		B7D244BE2166BB2500FE1CC4 /* EditEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventViewController.swift; sourceTree = "<group>"; };
 		B7D244C12166D71C00FE1CC4 /* MyEvents-initUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyEvents-initUI.swift"; sourceTree = "<group>"; };
 		B7D244C32166DD9200FE1CC4 /* TabBarPreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPreloader.swift; sourceTree = "<group>"; };
 		B7D244C72167156A00FE1CC4 /* MyEvents-download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyEvents-download.swift"; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 				B7D244CD216778BB00FE1CC4 /* InterestedViewController */,
 				B7541BD221681EDC00F6E806 /* LyftRideViewController */,
 				B7D244C32166DD9200FE1CC4 /* TabBarPreloader.swift */,
-				B7D244BE2166BB2500FE1CC4 /* EditEventViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -652,7 +649,6 @@
 				B73F9C4721658C5D00D001D9 /* Detail-initUI.swift in Sources */,
 				B73F9C5221658C5D00D001D9 /* rgba.swift in Sources */,
 				B7D244D721677B5A00FE1CC4 /* ProfileTableViewCell.swift in Sources */,
-				B7D244BF2166BB2500FE1CC4 /* EditEventViewController.swift in Sources */,
 				B73F9C3C21658C5D00D001D9 /* Event.swift in Sources */,
 				B7D244CA2167644000FE1CC4 /* MyEvents-tableview.swift in Sources */,
 				B7D244D321677A4500FE1CC4 /* Interested-tableview.swift in Sources */,
